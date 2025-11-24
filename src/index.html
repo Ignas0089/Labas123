@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanban Board</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Kanban Board</h1>
+    <form id="task-form" aria-label="Create a new task">
+      <label for="title">Title</label>
+      <input id="title" name="title" type="text" required>
+      <label for="description">Description</label>
+      <input id="description" name="description" type="text" placeholder="Optional">
+      <button type="submit">Add Task</button>
+    </form>
+  </header>
+
+  <main class="board" aria-label="Kanban board">
+    <section class="column" data-status="todo" aria-label="To Do column">
+      <h2>To Do</h2>
+      <div class="task-list" data-status="todo"></div>
+    </section>
+    <section class="column" data-status="in-progress" aria-label="In Progress column">
+      <h2>In Progress</h2>
+      <div class="task-list" data-status="in-progress"></div>
+    </section>
+    <section class="column" data-status="done" aria-label="Done column">
+      <h2>Done</h2>
+      <div class="task-list" data-status="done"></div>
+    </section>
+  </main>
+
+  <template id="task-template">
+    <article class="task" draggable="true">
+      <div class="task-header">
+        <h3 class="task-title"></h3>
+        <div class="task-actions">
+          <button type="button" class="edit">Edit</button>
+          <button type="button" class="delete">Delete</button>
+        </div>
+      </div>
+      <p class="task-description"></p>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
